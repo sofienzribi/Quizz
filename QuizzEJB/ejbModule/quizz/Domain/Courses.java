@@ -2,6 +2,7 @@ package quizz.Domain;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.*;
@@ -22,6 +23,8 @@ public class Courses implements Serializable {
 	private String Contenu;
 	@OneToMany(mappedBy="courses")
 	private List<Questions> Questions;
+	@ManyToMany(mappedBy="cours")
+	private Collection<User> Users;
 	private static final long serialVersionUID = 1L;
 
 	public Courses() {
@@ -62,6 +65,12 @@ public class Courses implements Serializable {
 	}
 	public void setQuestions(List<Questions> questions) {
 		Questions = questions;
+	}
+	public Collection<User> getUsers() {
+		return Users;
+	}
+	public void setUsers(Collection<User> users) {
+		Users = users;
 	}
    
 }

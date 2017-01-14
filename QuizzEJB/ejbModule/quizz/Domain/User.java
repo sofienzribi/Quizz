@@ -2,6 +2,8 @@ package quizz.Domain;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.Collection;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,8 @@ public class User implements Serializable {
 	private String Password;
 	private String Nom;
 	private String Prenom;
+	@ManyToMany
+	private Collection<Courses> cours;
 	private static final long serialVersionUID = 1L;
 
 	public User() {
@@ -56,6 +60,12 @@ public class User implements Serializable {
 	}
 	public void setPrenom(String prenom) {
 		Prenom = prenom;
+	}
+	public Collection<Courses> getCourses() {
+		return cours;
+	}
+	public void setCourses(Collection<Courses> cours) {
+		this.cours = cours;
 	}
    
 }
