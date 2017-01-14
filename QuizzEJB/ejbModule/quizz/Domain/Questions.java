@@ -18,6 +18,8 @@ public class Questions implements Serializable {
 	private String Question;
 	private String Choix;
 	private String Reponses;
+	@ManyToOne
+	private Courses courses;
 	private static final long serialVersionUID = 1L;
 
 	public Questions() {
@@ -51,5 +53,13 @@ public class Questions implements Serializable {
 	public void setReponses(String Reponses) {
 		this.Reponses = Reponses;
 	}
+	public Courses getCourses() {
+		return courses;
+	}
+	public void setCourses(Courses courses) {
+		this.courses = courses;
+	}
+	
+	
    
 }

@@ -2,6 +2,8 @@ package quizz.Domain;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -18,6 +20,8 @@ public class Courses implements Serializable {
 	private String Name;
 	private String Description;
 	private String Contenu;
+	@OneToMany(mappedBy="courses")
+	private List<Questions> Questions;
 	private static final long serialVersionUID = 1L;
 
 	public Courses() {
@@ -50,6 +54,14 @@ public class Courses implements Serializable {
 
 	public void setContenu(String Contenu) {
 		this.Contenu = Contenu;
+	}
+	
+	
+	public List<Questions> getQuestions() {
+		return Questions;
+	}
+	public void setQuestions(List<Questions> questions) {
+		Questions = questions;
 	}
    
 }
